@@ -7,7 +7,7 @@ const BlogLayout = ({ children }) => {
   return (
     <>
       <header>
-        <h1>
+        <h1 className="text-5xl font-bold mb-4 mt-0">
           <Link to={routes.home()}>Redwood Blog</Link>
         </h1>
         <nav>
