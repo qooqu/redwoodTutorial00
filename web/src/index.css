@@ -14,3 +14,11 @@ label {
 input.error, textarea.error {
   border: 2px solid red;
 }
+
+
+/* purgecss start ignore */
+@tailwind  base;
+@tailwind  components;
+/* purgecss end ignore */
+
+@tailwind  utilities;
