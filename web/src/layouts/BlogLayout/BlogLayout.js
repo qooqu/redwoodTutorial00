@@ -8,7 +8,7 @@ const BlogLayout = ({ children }) => {
     <>
       <div className="bg-teal-200">
         <div className="container mx-auto bg-blue-100">
-          <header className="pb-8 bg-orange-300">
+          <header className="p-8 bg-orange-300">
             <h1 className="text-5xl font-bold mb-4 mt-0">
               <Link to={routes.home()}>Redwood Blog</Link>
             </h1>
@@ -47,7 +47,7 @@ const BlogLayout = ({ children }) => {
               </ul>
             </nav>
           </header>
-          <main>{children}</main>
+          <main className="p-8">{children}</main>
         </div>
       </div>
     </>
