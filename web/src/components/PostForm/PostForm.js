@@ -5,7 +5,7 @@ import {
   Label,
   TextField,
   Submit,
-} from '@redwoodjs/web'
+} from '@redwoodjs/forms'
 
 const PostForm = (props) => {
   const onSubmit = (data) => {
@@ -53,6 +53,22 @@ const PostForm = (props) => {
           validation={{ required: true }}
         />
         <FieldError name="body" className="rw-field-error" />
+
+        <Label
+          name="author"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Author
+        </Label>
+        <TextField
+          name="author"
+          defaultValue={props.post?.author}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
+        <FieldError name="author" className="rw-field-error" />
 
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">

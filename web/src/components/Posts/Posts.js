@@ -19,6 +19,10 @@ const truncate = (text) => {
   return output
 }
 
+const jsonTruncate = (obj) => {
+  return truncate(JSON.stringify(obj, null, 2))
+}
+
 const timeTag = (datetime) => {
   return (
     <time dateTime={datetime} title={datetime}>
@@ -53,6 +57,7 @@ const PostsList = ({ posts }) => {
             <th>Id</th>
             <th>Title</th>
             <th>Body</th>
+            <th>Author</th>
             <th>Created at</th>
             <th>&nbsp;</th>
           </tr>
@@ -63,6 +68,7 @@ const PostsList = ({ posts }) => {
               <td>{truncate(post.id)}</td>
               <td>{truncate(post.title)}</td>
               <td>{truncate(post.body)}</td>
+              <td>{truncate(post.author)}</td>
               <td>{timeTag(post.createdAt)}</td>
               <td>
                 <nav className="rw-table-actions">

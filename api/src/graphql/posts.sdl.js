@@ -1,10 +1,9 @@
-import gql from 'graphql-tag'
-
 export const schema = gql`
   type Post {
     id: Int!
     title: String!
     body: String!
+    author: String!
     createdAt: DateTime!
   }
 
@@ -16,11 +15,13 @@ export const schema = gql`
   input CreatePostInput {
     title: String!
     body: String!
+    author: String!
   }
 
   input UpdatePostInput {
     title: String
     body: String
+    author: String
   }
 
   type Mutation {

@@ -6,17 +6,17 @@ const BlogLayout = ({ children }) => {
 
   return (
     <>
-      <div className="bg-red-400">
-        <div className="container mx-auto shadow-lg">
+      <div className="bg-teal-200">
+        <div className="container mx-auto shadow-lg min-h-screen bg-blue-200">
           <header>
-            <h1 className="text-5xl font-bold text-pink-400 py-6 pl-10 bg-green-400">
+            <h1 className="text-5xl font-bold py-6 pl-10 bg-green-400">
               <Link to={routes.home()}>Bloopy's Blog</Link>
             </h1>
             <nav className="py-4 pl-10 bg-pink-400">
               <ul className="flex">
                 <li className="mr-6">
                   <Link
-                    class="text-yellow-500 hover:text-blue-800"
+                    class="text-green-400 hover:text-blue-800"
                     to={routes.home()}
                   >
                     Home
@@ -24,7 +24,7 @@ const BlogLayout = ({ children }) => {
                 </li>
                 <li className="mr-6">
                   <Link
-                    class="text-yellow-500 hover:text-blue-800"
+                    class="text-green-400 hover:text-blue-800"
                     to={routes.about()}
                   >
                     About
@@ -32,7 +32,7 @@ const BlogLayout = ({ children }) => {
                 </li>
                 <li className="mr-6">
                   <Link
-                    class="text-yellow-500 hover:text-blue-800"
+                    class="text-green-400 hover:text-blue-800"
                     to={routes.contact()}
                   >
                     Contact
@@ -40,7 +40,7 @@ const BlogLayout = ({ children }) => {
                 </li>
                 <li className="mr-6">
                   <a
-                    className="text-yellow-500 hover:text-blue-800"
+                    className="text-green-400 hover:text-blue-800"
                     href="#"
                     onClick={isAuthenticated ? logOut : logIn}
                   >
@@ -48,14 +48,14 @@ const BlogLayout = ({ children }) => {
                   </a>
                 </li>
                 {isAuthenticated && (
-                  <li className="mr-6 text-yellow-500 hover:text-blue-800">
+                  <li className="mr-6 text-green-400 hover:text-blue-800">
                     {currentUser.email}
                   </li>
                 )}
               </ul>
             </nav>
           </header>
-          <main className="p-8 bg-blue-400">{children}</main>
+          <main className="p-8">{children}</main>
         </div>
       </div>
     </>
