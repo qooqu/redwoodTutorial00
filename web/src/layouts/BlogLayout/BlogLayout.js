@@ -38,6 +38,21 @@ const BlogLayout = ({ children }) => {
                     Contact
                   </Link>
                 </li>
+                {isAuthenticated && (
+                  <li className="mr-6">
+                    <Link
+                      class="text-green-400 hover:text-blue-800"
+                      to={routes.posts()}
+                    >
+                      Admin
+                    </Link>
+                  </li>
+                )}
+                {isAuthenticated && (
+                  <li className="mr-6 text-green-400 hover:text-blue-800">
+                    {currentUser.name}
+                  </li>
+                )}
                 <li className="mr-6">
                   <a
                     className="text-green-400 hover:text-blue-800"
@@ -47,11 +62,6 @@ const BlogLayout = ({ children }) => {
                     {isAuthenticated ? 'Log out' : 'Log in'}
                   </a>
                 </li>
-                {isAuthenticated && (
-                  <li className="mr-6 text-green-400 hover:text-blue-800">
-                    {currentUser.email}
-                  </li>
-                )}
               </ul>
             </nav>
           </header>
