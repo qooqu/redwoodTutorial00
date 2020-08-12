@@ -7,6 +7,8 @@
 
 import { AuthenticationError } from '@redwoodjs/api'
 
+import { createUser } from 'src/services/users/users'
+
 import { db } from './db'
 
 // old
@@ -19,8 +21,16 @@ import { db } from './db'
 //   return decoded
 // }
 
-export const getCurrentUser = async ({ email }) => {
-  return await db.user.findOne({ where: { email } })
+export const getCurrentUser = async (decoded, { _type, _token }) => {
+  const data = {
+    name: decoded.user_metadata.full_name,
+    email: decoded.email,
+    isAdmin: false,
+  }
+  return (
+    (await db.user.findOne({ where: { email: decoded.email } })) ||
+    (await createUser({ input: data }))
+  )
 }
 
 // Use this function in your services to check that a user is logged in, and
