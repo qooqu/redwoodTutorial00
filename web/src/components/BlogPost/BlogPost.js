@@ -1,19 +1,28 @@
-import { Link, routes } from '@redwoodjs/router'
+import { Link, routes, navigate } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 
 const UPDATE_POST_MUTATION = gql`
   mutation UpdatePostMutation($id: Int!, $input: UpdatePostInput!) {
     updatePost(id: $id, input: $input) {
       id
+      title
     }
   }
 `
-
 const BlogPost = ({ post }) => {
   const [update] = useMutation(UPDATE_POST_MUTATION)
   const handleClick = (id, data) => {
-    post = update({ variables: { id, input: data } })
-    console.log(post)
+    update({
+      variables: { id, input: data },
+      optimisticResponse: {
+        __typename: 'Mutation',
+        updatePost: {
+          __typename: 'Post',
+          id: id,
+          title: data.title,
+        },
+      },
+    })
   }
   return (
     <article className="max-w-sm rounded overflow-hidden shadow-lg p-8 mb-8 last:mb-0 bg-green-100">
