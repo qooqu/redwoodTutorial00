@@ -12,8 +12,8 @@ const UPDATE_POST_MUTATION = gql`
 const BlogPost = ({ post }) => {
   const [update] = useMutation(UPDATE_POST_MUTATION)
   const handleClick = (id, data) => {
-    update({ variables: { id, input: data } })
-    console.log(data)
+    post = update({ variables: { id, input: data } })
+    console.log(post)
   }
   return (
     <article className="max-w-sm rounded overflow-hidden shadow-lg p-8 mb-8 last:mb-0 bg-green-100">
