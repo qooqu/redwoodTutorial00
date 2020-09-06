@@ -19,7 +19,6 @@ export const createPost = ({ input }) => {
 }
 
 export const updatePost = ({ id, input }) => {
-  requireAuth()
   return db.post.update({
     data: input,
     where: { id },

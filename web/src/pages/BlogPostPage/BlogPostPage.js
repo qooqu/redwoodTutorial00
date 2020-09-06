@@ -3,9 +3,11 @@ import BlogPostCell from 'src/components/BlogPostCell'
 
 const BlogPostPage = ({ id }) => {
   return (
-    <BlogLayout>
-      <BlogPostCell id={id} />
-    </BlogLayout>
+    <>
+      <BlogLayout>
+        <BlogPostCell id={id} />
+      </BlogLayout>
+    </>
   )
 }
 
