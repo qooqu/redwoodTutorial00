@@ -5,6 +5,11 @@ module.exports = {
   important: false,
   separator: ':',
   theme: {
+    extend: {
+      backgroundImage: (theme) => ({
+        rad50: 'radial-gradient(circle, black 50%, white 50%)',
+      }),
+    },
     screens: {
       sm: '640px',
       md: '768px',

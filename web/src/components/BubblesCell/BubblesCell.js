@@ -49,12 +49,43 @@ export const Success = ({ bubbles }) => {
     })
   }
   return bubbles.map((bubble) => (
-    <button
-      key={bubble.id}
-      className="h-24 bg-gradient-to-r from-orange-400 via-red-500 to-pink-500"
-      onClick={() => handleClick(bubble.id, { value: bubble.value })}
-    >
-      {bubble.value}
-    </button>
+    <>
+      <button
+        key={bubble.id}
+        className={'h-24 w-24 rounded-full border-4'}
+        onClick={() => handleClick(bubble.id, { value: bubble.value })}
+      >
+        {bubble.value}
+      </button>
+      <button
+        key={bubble.id}
+        className={
+          'h-24 w-24 rounded-full border-4 ' +
+          (bubble.value === 25 ? 'border-black' : null)
+        }
+        onClick={() => handleClick(bubble.id, { value: bubble.value })}
+      >
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <circle
+            cx="50%"
+            cy="50%"
+            r={(() => {
+              switch (bubble.value) {
+                case 25:
+                  return '10%'
+                case 50:
+                  return '20%'
+                case 75:
+                  return '35%'
+                case 100:
+                  return '50%'
+                default:
+                  return ''
+              }
+            })()}
+          />
+        </svg>
+      </button>
+    </>
   ))
 }
