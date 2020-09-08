@@ -1,5 +1,6 @@
 import { Link, routes, navigate } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
+import BubblesCell from 'src/components/BubblesCell'
 
 const UPDATE_POST_MUTATION = gql`
   mutation UpdatePostMutation($id: Int!, $input: UpdatePostInput!) {
@@ -46,6 +47,7 @@ const BlogPost = ({ post }) => {
       >
         Remove yo
       </button>
+      <BubblesCell />
     </article>
   )
 }

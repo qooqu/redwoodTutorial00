@@ -12,6 +12,10 @@ import { Router, Route, Private } from '@redwoodjs/router'
 const Routes = () => {
   return (
     <Router>
+      <Route path="/bubbles/new" page={NewBubblePage} name="newBubble" />
+      <Route path="/bubbles/{id:Int}/edit" page={EditBubblePage} name="editBubble" />
+      <Route path="/bubbles/{id:Int}" page={BubblePage} name="bubble" />
+      <Route path="/bubbles" page={BubblesPage} name="bubbles" />
       <Route notfound page={NotFoundPage} />
       <Route path="/contact" page={ContactPage} name="contact" />
       <Route path="/blog-post/{id:Int}" page={BlogPostPage} name="blogPost" />
