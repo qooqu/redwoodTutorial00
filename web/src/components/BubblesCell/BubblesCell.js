@@ -18,7 +18,7 @@ const UPDATE_BUBBLE_MUTATION = gql`
   }
 `
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => <div>Loading bubbles...</div>
 
 export const Empty = () => {
   return (

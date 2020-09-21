@@ -47,7 +47,7 @@ const BlogPost = ({ post }) => {
       >
         Remove yo
       </button>
-      <BubblesCell />
+      {/* <BubblesCell /> */}
     </article>
   )
 }
