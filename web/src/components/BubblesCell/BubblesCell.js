@@ -9,9 +9,7 @@ export const QUERY = gql`
     }
   }
 `
-export const beforeQuery = (props) => {
-  return { variables: props }
-}
+
 const UPDATE_BUBBLE_MUTATION = gql`
   mutation UpdateBubbleMutation($id: Int!, $input: UpdateBubbleInput!) {
     updateBubble(id: $id, input: $input) {
