@@ -14,6 +14,7 @@ const UPDATE_BUBBLE_MUTATION = gql`
   mutation UpdateBubbleMutation($id: Int!, $input: UpdateBubbleInput!) {
     updateBubble(id: $id, input: $input) {
       id
+      value
     }
   }
 `

@@ -1,6 +1,8 @@
 import { Link, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 
+import Bubbles from 'src/components/Bubbles'
+
 export const QUERY = gql`
   query BUBBLES {
     bubbles {
@@ -19,7 +21,7 @@ const UPDATE_BUBBLE_MUTATION = gql`
   }
 `
 
-export const Loading = () => <div>Loading bubbles...</div>
+export const Loading = () => <div>Loading...</div>
 
 export const Empty = () => {
   return (

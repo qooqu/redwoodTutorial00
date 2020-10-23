@@ -2,6 +2,8 @@ import { useMutation, useFlash } from '@redwoodjs/web'
 import { navigate, routes } from '@redwoodjs/router'
 import BubbleForm from 'src/components/BubbleForm'
 
+import { QUERY } from 'src/components/BubblesCell'
+
 const CREATE_BUBBLE_MUTATION = gql`
   mutation CreateBubbleMutation($input: CreateBubbleInput!) {
     createBubble(input: $input) {
@@ -19,6 +21,11 @@ const NewBubble = () => {
         navigate(routes.bubbles())
         addMessage('Bubble created.', { classes: 'rw-flash-success' })
       },
+      // This refetches the query on the list page. Read more about other ways to
+      // update the cache over here:
+      // https://www.apollographql.com/docs/react/data/mutations/#making-all-other-cache-updates
+      refetchQueries: [{ query: QUERY }],
+      awaitRefetchQueries: true,
     }
   )
 
