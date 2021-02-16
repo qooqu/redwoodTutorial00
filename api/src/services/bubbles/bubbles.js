@@ -5,7 +5,7 @@ export const bubbles = () => {
 }
 
 export const bubble = ({ id }) => {
-  return db.bubble.findOne({
+  return db.bubble.findUnique({
     where: { id },
   })
 }

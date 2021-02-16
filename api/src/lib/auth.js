@@ -2,7 +2,7 @@
 // to return a real user from your database, you could do something like:
 //
 //   export const getCurrentUser = async ({ email }) => {
-//     return await db.user.findOne({ where: { email } })
+//     return await db.user.findUnique({ where: { email } })
 //   }
 
 import { AuthenticationError } from '@redwoodjs/api'
@@ -28,7 +28,7 @@ export const getCurrentUser = async (decoded, { _type, _token }) => {
     isAdmin: false,
   }
   return (
-    (await db.user.findOne({ where: { email: decoded.email } })) ||
+    (await db.user.findUnique({ where: { email: decoded.email } })) ||
     (await createUser({ input: data }))
   )
 }
